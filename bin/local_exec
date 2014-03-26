@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+root = "/code/orig/local_exec"
+
+load "#{root}/lib/local_exec.rb"
+
+dir = Dir.getwd
+filename = "#{dir}/Gemfile"
+
+gemfile = LocalExec::Gemfile.new(filename: filename)
+gemfile.evaluate!
+gemfile.print!
+
+addl = LocalExec::Command.new.addl_gems
+exec = LocalExec::Exec.new(gemfile: gemfile, addl_gems: addl, args: ARGV)
+exec.exec!
+
