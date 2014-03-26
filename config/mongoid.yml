@@ -1,0 +1,22 @@
+
+
+development:
+  sessions:
+    local_exec:
+      database: local_exec_dev
+      hosts:
+        - localhost:27017
+
+test:
+  sessions:
+    local_exec:
+      database: local_exec_test
+      hosts:
+        - localhost:27017
+
+production:
+  sessions:
+    local_exec:
+      database: local_exec_prod
+      hosts:
+        - localhost:27017
