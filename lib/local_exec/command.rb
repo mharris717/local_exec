@@ -1,10 +1,19 @@
 module LocalExec
   class Command
-    def addl_gems
-      opts = Trollop::options do
+    fattr(:parsed) do
+      Trollop::options do
         opt :addl, "Additional gems", default: ""
+        opt :local, "Local gems", default: ""
       end
-      res = opts[:addl].split(",")
+    end
+    def addl_gems
+      parsed[:addl].split(",")
+    end
+    def local_gems
+      parsed[:local].split(",")
+    end
+    def remaining_args
+      ARGV
     end
   end
 end

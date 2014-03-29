@@ -23,6 +23,5 @@ end
 gem 'mharris_ext'
 gem 'andand'
 
-private_gem 'mongoid_gem_config'
-
-gem 'mongoid', github: "mongoid/mongoid"
+gem 'mongoid_gem_config'
+gem 'trollop'

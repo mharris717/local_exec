@@ -12,8 +12,11 @@ module LocalExec
     end
 
     fattr(:addl_gems) { [] }
+    fattr(:local_gems) { [] }
     fattr(:new_gemfile) do
-      gemfile.filename_with_addl_gems(addl_gems)
+      gemfile.addl_gems = addl_gems
+      gemfile.local_gems = local_gems
+      gemfile.new_filename
     end
 
     def cmd
