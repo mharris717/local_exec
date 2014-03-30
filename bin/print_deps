@@ -3,14 +3,10 @@
 root = File.expand_path(File.dirname(__FILE__) + "/..")
 load "#{root}/lib/local_exec.rb"
 
-dir = Dir.getwd
+dir = ARGV[0] || Dir.getwd
+dir = File.expand_path(dir)
 filename = "#{dir}/Gemfile"
 
 gemfile = LocalExec::Gemfile.new(filename: filename)
 gemfile.evaluate!
 gemfile.print!
-
-c = LocalExec::Command.new
-exec = LocalExec::Exec.new(gemfile: gemfile, addl_gems: c.addl_gems, args: c.remaining_args, local_gems: c.local_gems)
-exec.exec!
-
