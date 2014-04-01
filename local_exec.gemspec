@@ -39,6 +39,7 @@ Gem::Specification.new do |s|
     "lib/local_exec/exec.rb",
     "lib/local_exec/gemfile.rb",
     "lib/local_exec/main.rb",
+    "local_exec.gemspec",
     "spec/local_exec_spec.rb",
     "spec/spec_helper.rb",
     "spec/support/mongo_connect.rb",
