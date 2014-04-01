@@ -21,10 +21,20 @@ module LocalExec
     fattr(:addl_gems) { [] }
     fattr(:local_gems) { [] }
 
+    def proj_name
+      if filename
+        filename.split("/")[-2]
+      else
+        nil
+      end
+    end
+
     fattr(:missing_gems) do
       dups = addl_gems.select { |c| has_gem?(c) }
-      puts "DUPS: #{dups.inspect}" if dups.size > 0
-      addl_gems - dups
+      #puts "DUPS: #{dups.inspect}" if dups.size > 0
+      res = addl_gems - dups - [proj_name]
+      res -= ['mongoid_gem_config'] if proj_name == 'define_task'
+      res
     end
 
     fattr(:gems) { [] }
@@ -54,16 +64,14 @@ module LocalExec
     end
 
     def body
-      res = gems.map do |g|
+      all_gems = gems + missing_gems.map { |x| MyGem.new(name: x) }
+
+      res = all_gems.map do |g|
         if local_gems.include?(g.name)
           g.to_s_local
         else
           g.to_s
         end
-      end
-
-      missing_gems.each do |g|
-        res << "gem '#{g}'"
       end
 
       res.join("\n")

@@ -7,6 +7,8 @@ module LocalExec
     end
     def source(*args)
     end
+    def ruby(*args)
+    end
     def group(*args,&b)
       instance_eval(&b)
     end

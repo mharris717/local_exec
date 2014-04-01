@@ -6,11 +6,12 @@ load "#{root}/lib/local_exec.rb"
 dir = Dir.getwd
 filename = "#{dir}/Gemfile"
 
-gemfile = LocalExec::Gemfile.new(filename: filename)
-gemfile.evaluate!
-gemfile.print!
+if FileTest.exist?(filename)
+  gemfile = LocalExec::Gemfile.new(filename: filename)
+  gemfile.evaluate!
+  #gemfile.print!
 
-c = LocalExec::Command.new
-exec = LocalExec::Exec.new(gemfile: gemfile, addl_gems: c.addl_gems, args: c.remaining_args, local_gems: c.local_gems)
-exec.exec!
-
+  c = LocalExec::Command.new
+  exec = LocalExec::Exec.new(bundle_cmd: c.bundle_cmd, gemfile: gemfile, addl_gems: c.addl_gems, args: c.remaining_args, local_gems: c.local_gems)
+  exec.exec!
+end

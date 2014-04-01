@@ -47,3 +47,26 @@ describe "Gemfile" do
     end
   end
 end
+
+describe "Gemfile" do
+  let(:gemfile) do
+    LocalExec::Gemfile.new.tap do |g|
+      g.source_body = "gem 'a'\ngem 'b'"
+      g.addl_gems = %w(c d)
+      g.local_gems = %w(c)
+    end
+  end
+
+  def local_line(name)
+    name = name.to_s
+    'gem \'' + name + '\', git: "https://#{ENV[\'GITHUB_TOKEN\']}:x-oauth-basic@github.com/mharris717/' + name + '.git", branch: :master'
+  end
+
+  it 'smoke' do
+    gemfile.evaluate!
+    gemfile.body.split("\n").tap do |lines|
+      lines.size.should == 4
+      lines.should be_include(local_line(:c))
+    end
+  end
+end

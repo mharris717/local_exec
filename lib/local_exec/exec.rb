@@ -19,14 +19,18 @@ module LocalExec
       gemfile.new_filename
     end
 
+    fattr(:bundle_cmd) do
+      "exec"
+    end
+
     def cmd
       a = args.join(" ")
-      "bundle exec #{a}"
+      "bundle #{bundle_cmd} #{a}"
     end
 
     def exec!
       ENV['BUNDLE_GEMFILE'] = new_gemfile
-      puts "running #{cmd}"
+      #puts "running #{cmd}"
       exec cmd
     end
 
