@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Mike Harris"]
-  s.date = "2014-04-01"
+  s.date = "2014-04-08"
   s.description = "local_exec"
   s.email = "mharris717@gmail.com"
   s.executables = ["local_exec", "print_deps"]
@@ -55,48 +55,45 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rspec>, [">= 0"])
-      s.add_runtime_dependency(%q<rdoc>, [">= 0"])
-      s.add_runtime_dependency(%q<bundler>, [">= 0"])
-      s.add_runtime_dependency(%q<jeweler>, [">= 0"])
-      s.add_runtime_dependency(%q<guard>, [">= 0"])
-      s.add_runtime_dependency(%q<guard-rspec>, [">= 0"])
-      s.add_runtime_dependency(%q<guard-spork>, [">= 0"])
-      s.add_runtime_dependency(%q<rb-fsevent>, [">= 0"])
       s.add_runtime_dependency(%q<mharris_ext>, [">= 0"])
       s.add_runtime_dependency(%q<andand>, [">= 0"])
       s.add_runtime_dependency(%q<mongoid_gem_config>, [">= 0"])
       s.add_runtime_dependency(%q<trollop>, [">= 0"])
-      s.add_runtime_dependency(%q<define_task>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
+      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_development_dependency(%q<bundler>, [">= 1.0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.8.7"])
+      s.add_development_dependency(%q<guard>, [">= 0"])
+      s.add_development_dependency(%q<guard-rspec>, [">= 0"])
+      s.add_development_dependency(%q<guard-spork>, [">= 0"])
+      s.add_development_dependency(%q<rb-fsevent>, ["~> 0.9"])
     else
-      s.add_dependency(%q<rspec>, [">= 0"])
-      s.add_dependency(%q<rdoc>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
-      s.add_dependency(%q<guard>, [">= 0"])
-      s.add_dependency(%q<guard-rspec>, [">= 0"])
-      s.add_dependency(%q<guard-spork>, [">= 0"])
-      s.add_dependency(%q<rb-fsevent>, [">= 0"])
       s.add_dependency(%q<mharris_ext>, [">= 0"])
       s.add_dependency(%q<andand>, [">= 0"])
       s.add_dependency(%q<mongoid_gem_config>, [">= 0"])
       s.add_dependency(%q<trollop>, [">= 0"])
-      s.add_dependency(%q<define_task>, [">= 0"])
+      s.add_dependency(%q<rspec>, ["~> 2.8.0"])
+      s.add_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_dependency(%q<bundler>, [">= 1.0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.8.7"])
+      s.add_dependency(%q<guard>, [">= 0"])
+      s.add_dependency(%q<guard-rspec>, [">= 0"])
+      s.add_dependency(%q<guard-spork>, [">= 0"])
+      s.add_dependency(%q<rb-fsevent>, ["~> 0.9"])
     end
   else
-    s.add_dependency(%q<rspec>, [">= 0"])
-    s.add_dependency(%q<rdoc>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
-    s.add_dependency(%q<guard>, [">= 0"])
-    s.add_dependency(%q<guard-rspec>, [">= 0"])
-    s.add_dependency(%q<guard-spork>, [">= 0"])
-    s.add_dependency(%q<rb-fsevent>, [">= 0"])
     s.add_dependency(%q<mharris_ext>, [">= 0"])
     s.add_dependency(%q<andand>, [">= 0"])
     s.add_dependency(%q<mongoid_gem_config>, [">= 0"])
     s.add_dependency(%q<trollop>, [">= 0"])
-    s.add_dependency(%q<define_task>, [">= 0"])
+    s.add_dependency(%q<rspec>, ["~> 2.8.0"])
+    s.add_dependency(%q<rdoc>, ["~> 3.12"])
+    s.add_dependency(%q<bundler>, [">= 1.0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.8.7"])
+    s.add_dependency(%q<guard>, [">= 0"])
+    s.add_dependency(%q<guard-rspec>, [">= 0"])
+    s.add_dependency(%q<guard-spork>, [">= 0"])
+    s.add_dependency(%q<rb-fsevent>, ["~> 0.9"])
   end
 end
 
